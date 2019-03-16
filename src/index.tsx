@@ -4,6 +4,7 @@ import * as React from "react";
 import { UserStore } from "./store/UserStore";
 import { UserAdapter } from "./adapters/UserAdapter";
 import { Provider } from "mobx-react";
+import DevTools from "mobx-react-devtools";
 
 const userStore = new UserStore(new UserAdapter());
 setTimeout(() => userStore.fetchUsersAsync());
@@ -11,7 +12,10 @@ setTimeout(() => userStore.fetchUsersAsync());
 const renderer = () => {
   return (
     <Provider userStore={userStore}>
-      <Dashboard />
+      <div>
+        <Dashboard />
+        <DevTools />
+      </div>
     </Provider>
   );
 };

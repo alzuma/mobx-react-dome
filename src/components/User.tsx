@@ -1,11 +1,13 @@
 import * as React from "react";
+import { IUser } from "../adapters/UserAdapter";
 
 interface IUserProps {
-  name: string;
+  user: IUser;
 }
 
 export class User extends React.Component<IUserProps> {
   public render() {
-    return <li>{this.props.name}</li>;
+    const { user } = this.props;
+    return <li>{user.name}</li>;
   }
 }

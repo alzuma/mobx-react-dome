@@ -14,11 +14,13 @@ export class UserList extends React.Component<IUserListProps> {
     const { userStore } = this.props;
 
     return (
-      <ul>
-        {userStore.users.map(_ => {
-          return <User name={_.name} />;
-        })}
-      </ul>
+      <>
+        <ul>
+          {userStore.users.map(_ => {
+            return <User key={_.id} user={_} />;
+          })}
+        </ul>
+      </>
     );
   }
 }
